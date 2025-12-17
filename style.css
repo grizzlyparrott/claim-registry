@@ -1,0 +1,11 @@
+:root{--bg:#0b1220;--surface:#0f172a;--text:#e5e7eb;--muted:#a7b0c0;--border:rgba(255,255,255,.12);--link:#7dd3fc}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+header{padding:28px 18px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(255,255,255,.05),transparent)}
+main{max-width:920px;margin:0 auto;padding:22px 18px 56px}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 16px;margin:14px 0}
+code,pre{background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:10px;padding:10px;overflow:auto}
+nav a{margin-right:14px}
+small{color:var(--muted)}

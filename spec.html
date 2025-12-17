@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Public Spec</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <main>
+    <h1>Public Spec</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="walkthrough.html">Walkthrough</a>
+      <a href="downloads.html">Samples</a>
+    </nav>
+    <small>This page mirrors SPEC.md in the repository.</small>
+  </main>
+</header>
+<main>
+  <div class="card">
+    <h2>Format</h2>
+    <p>A registry is a folder containing <code>registry.jsonl</code> and <code>records/&lt;record_id&gt;/</code> folders. Each record folder contains <code>record.json</code>, <code>manifest.json</code>, and optional <code>attachments/</code> files.</p>
+  </div>
+  <div class="card">
+    <h2>Normalization</h2>
+    <p>All text fields are trimmed and newlines are normalized to <code>\n</code>. <code>observed_at</code> is ISO 8601; trailing <code>+00:00</code> is normalized to <code>Z</code>.</p>
+  </div>
+  <div class="card">
+    <h2>Hashing</h2>
+    <p>SHA-256 is computed for normalized claim text, each attachment file's bytes, and the canonical JSON form of each record. Canonical JSON uses sorted keys and no whitespace.</p>
+  </div>
+  <div class="card">
+    <h2>Deterministic ID and hash chain</h2>
+    <p><code>record_id</code> is SHA-256 of canonical JSON over stable fields (claim hash, observed_at, source_url, attachment hashes). Each record stores <code>prev_record_hash</code> linking to the previous record's <code>record_json_hash</code>, forming a chain in <code>registry.jsonl</code>.</p>
+  </div>
+  <div class="card">
+    <h2>Full spec text</h2>
+    <p>See <code>SPEC.md</code> in the repository for exact field definitions and hashing rules.</p>
+  </div>
+</main>
+</body>
+</html>

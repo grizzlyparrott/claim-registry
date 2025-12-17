@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verification Walkthrough</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <main>
+    <h1>Verification Walkthrough</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="spec.html">Spec</a>
+      <a href="downloads.html">Samples</a>
+    </nav>
+  </main>
+</header>
+<main>
+  <div class="card">
+    <h2>What files exist in a packet</h2>
+    <pre>packet_root/
+  README.txt
+  registry.jsonl
+  record/
+    record.json
+    manifest.json
+    attachments/ (optional)
+      ...</pre>
+  </div>
+  <div class="card">
+    <h2>What verify checks</h2>
+    <p>verify recomputes SHA-256 for every file listed in <code>record/manifest.json</code>, recomputes <code>record_json_hash</code> from canonical JSON, verifies <code>prev_record_hash</code> forms a chain through <code>registry.jsonl</code>, and re-derives the deterministic <code>record_id</code> from stable fields. Any mismatch produces a failure with an explicit reason.</p>
+  </div>
+  <div class="card">
+    <h2>Run it</h2>
+    <pre>python -m claim_registry verify --root /path/to/unzipped_packet</pre>
+  </div>
+</main>
+</body>
+</html>
